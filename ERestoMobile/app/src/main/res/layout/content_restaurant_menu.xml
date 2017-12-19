@@ -38,8 +38,8 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Checkout"
-                android:id="@+id/buttonCheckoutOrder"
+                android:text="Edit Menu"
+                android:id="@+id/buttonEditMenu"
                 android:layout_gravity="center_horizontal" />
         </LinearLayout>
 
