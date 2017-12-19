@@ -1,5 +1,6 @@
 package com.example.asus.eaterymobile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -7,6 +8,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.Button;
 import android.view.*;
 import android.view.MenuItem;
 
@@ -15,7 +17,9 @@ import android.view.MenuItem;
  */
 
 public class RestaurantMenu extends AppCompatActivity implements NavigationView.
-        OnNavigationItemSelectedListener {
+        OnNavigationItemSelectedListener, View.OnClickListener {
+
+    Button buttonEditMenu;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,10 +37,23 @@ public class RestaurantMenu extends AppCompatActivity implements NavigationView.
         NavigationView navigationView = (NavigationView)
                 findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        buttonEditMenu = (Button)findViewById(R.id.buttonEditMenu);
+        buttonEditMenu.setOnClickListener(this);
     }
+
+
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         return false;
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        if(v == buttonEditMenu){
+            startActivity(new Intent(getApplicationContext(),RestaurantMenuEdit.class));
+        }
     }
 }
